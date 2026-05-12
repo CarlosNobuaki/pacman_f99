@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Canvas */
+#canvas-jogo {
+    border: 3px solid #fff;
+    background-color: #000;
+    margin-top: 10px;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* HUD */
+.hud {
+    width: 100%;
+    padding: 15px;
+    background-color: #111;
+    border-bottom: 2px solid #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.hud-esquerda, .hud-direita {
+    flex: 1;
+}
+
+.hud-centro {
+    flex: 2;
+    text-align: center;
+}
+
+/* Modais */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-conteudo {
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    text-align: center;
+    max-width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
+}
+
+.modal-conteudo h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #ffff00;
+}
+
+.modal-conteudo h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ffff00;
+}
+
+.modal-conteudo p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+/* Formulário */
+.form-grupo {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-grupo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ffff00;
+}
+
+.form-grupo input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #fff;
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.form-grupo input:focus {
+    outline: none;
+    border-color: #ffff00;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
+
+/* Avatares */
+.avatares {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.avatar-btn {
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.avatar-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.avatar-btn.selecionado {
+    border-color: #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    transform: scale(1.1);
+}
+
+/* Botões */
+.btn-primario,
+.btn-secundario {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s;
+}
+
+.btn-primario {
+    background-color: #ffff00;
+    color: #000;
+}
+
+.btn-primario:hover {
+    background-color: #ffff66;
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.6);
+}
+
+.btn-secundario {
+    background-color: #666;
+    color: #fff;
+}
+
+.btn-secundario:hover {
+    background-color: #888;
+}
+
+/* Mensagens */
+.msg-erro {
+    color: #ff6666;
+    margin-top: 15px;
+    font-size: 14px;
+    min-height: 20px;
+}
+
+/* Stats */
+.stats {
+    background-color: #222;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 15px 0;
+    text-align: left;
+}
+
+.stats div {
+    padding: 8px 0;
+    font-size: 16px;
+    border-bottom: 1px solid #444;
+}
+
+.stats div:last-child {
+    border-bottom: none;
+}
+
+/* Leaderboard */
+.leaderboard {
+    background-color: #222;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 15px 0;
+    text-align: left;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.leaderboard h3 {
+    text-align: center;
+    color: #ffff00;
+    margin-bottom: 10px;
+}
+
+.score-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #444;
+    font-size: 14px;
+}
+
+.score-item span:first-child {
+    flex: 1;
+}
+
+.score-item span:last-child {
+    font-weight: bold;
+    color: #ffff00;
+}
+
+.score-item:nth-child(1) .score-rank::before {
+    content: "🥇 ";
+}
+
+.score-item:nth-child(2) .score-rank::before {
+    content: "🥈 ";
+}
+
+.score-item:nth-child(3) .score-rank::before {
+    content: "🥉 ";
+}
+
+/* Responsivo */
+@media (max-width: 800px) {
+    #canvas-jogo {
+        width: 90vw;
+        height: auto;
+    }
+
+    .modal-conteudo {
+        max-width: 90vw;
+        padding: 20px;
+    }
+
+    .avatares {
+        grid-template-columns: 1fr;
+    }
+}

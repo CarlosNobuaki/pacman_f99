@@ -1,0 +1,78 @@
+{
+  "game": {
+    "title": "Pac-Man CIAg",
+    "width": 640,
+    "height": 480,
+    "block_size": 32,
+    "fps": 60
+  },
+  "player": {
+    "name": "Pac-Man",
+    "start_x": 1,
+    "start_y": 1,
+    "speed": 1,
+    "color_fallback": [255, 255, 0]
+  },
+  "ghosts": [
+    {
+      "name": "Blinky",
+      "start_x": 9,
+      "start_y": 4,
+      "color": [255, 0, 0],
+      "aggression": 0.7
+    },
+    {
+      "name": "Pinky",
+      "start_x": 10,
+      "start_y": 4,
+      "color": [255, 184, 255],
+      "aggression": 0.7
+    },
+    {
+      "name": "Inky",
+      "start_x": 9,
+      "start_y": 5,
+      "color": [0, 255, 255],
+      "aggression": 0.6
+    },
+    {
+      "name": "Clyde",
+      "start_x": 10,
+      "start_y": 5,
+      "color": [255, 165, 0],
+      "aggression": 0.5
+    }
+  ],
+  "gameplay": {
+    "lives": 3,
+    "pellet_points": 10,
+    "ghost_collision_damage": 1,
+    "ghost_direction_change_interval": 30,
+    "pellet_size": 6
+  },
+  "audio": {
+    "enabled": true,
+    "sample_rate": 22050,
+    "amplitude": 0.3,
+    "frequencies": {
+      "start_game": [400, 500, 600],
+      "pellet": [800, 600],
+      "death": [600, 550, 500, 450, 400, 350, 300, 250],
+      "victory": [523.25, 659.25, 783.99, 523.25, 659.25, 783.99, 1046.50],
+      "gameover": [300, 200]
+    }
+  },
+  "sprites": {
+    "player_file": "jogador.png",
+    "ghost_file": "/Users/carlosnobuaki/pacman/enemy.png",
+    "wall_file": "/Users/carlosnobuaki/pacman/maze.png",
+    "use_fallback_colors": true
+  },
+  "colors": {
+    "background": [0, 0, 0],
+    "wall": [0, 0, 255],
+    "pellet": [255, 200, 150],
+    "text": [255, 255, 255],
+    "danger": [255, 0, 0]
+  }
+}
